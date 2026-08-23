@@ -1,0 +1,80 @@
+# Tags-recommender-system-for-community-forums
+
+> NLP multi-label tag recommender for community forums (Stack Overflow, Stack Exchange, Discourse, Codechef). Combines TF-IDF with neural networks and an active learning loop for iterative improvement.
+
+Tags-recommender-system-for-community-forums solves the multi-label classification problem for community forum posts. Unlike single-label NLP tutorials, real forum posts span multiple tags: a post about "webscraping using python and Selenium" needs three tags (webscraping, python, selenium). This project builds a tag recommender that predicts relevant tags from post text using TF-IDF features fed into neural networks, with an active learning loop that surfaces uncertain predictions for human annotation.
+
+## Results
+
+- F1 Score: 0.45
+- Accuracy: 0.96 on scraped Stack Overflow / Stack Exchange dataset
+
+## Approach
+
+1. Web-scrape tags and topics from Stack Exchange and Stack Overflow
+2. Frame as multi-label classification (one post can have many tags)
+3. TF-IDF vectorization of post text
+4. Neural network classifier with sigmoid output for multi-label
+5. Active learning loop: model surfaces low-confidence predictions for human review
+6. Streamlit deployment for interactive tag prediction
+7. AWS migration for production hosting
+
+## Project collaborators
+
+1. Architecture and Project Planning - Saad Ahmad and Somya Goswami
+2. Deep Learning SME - Somya Goswami
+3. Active Learning - Saad Ahmad
+4. Tag Recommender with TF-IDF with Neural Networks - Hui Wen
+5. Tag Recommender integration with Active Learning loop, Streamlit Deployment and AWS migration - Sai Likhith Kanuparthi
+
+## Key files
+
+- Tag_recommender.ipynb: main notebook with TF-IDF and neural network tag recommender
+- Sai's_code_Tag_Annotation_Deep_Learning_TF_IDF_approach.ipynb: deep learning TF-IDF approach with active learning integration
+- webscraping_stack4.xlsx: scraped dataset from Stack Overflow and Stack Exchange
+- demo-C.gif: demo of the Streamlit tag recommender app
+- final presentation.pptx: project presentation
+
+## Tech stack
+
+- Python, TF-IDF (scikit-learn), Neural Networks (Keras/TensorFlow)
+- Active Learning (modAL or custom uncertainty sampling)
+- Streamlit (deployment)
+- AWS (production migration)
+- Google Colab (notebook runtime)
+
+## Dataset
+
+- Scraped from Stack Overflow and Stack Exchange: post text and associated tags
+- Stored in webscraping_stack4.xlsx
+
+## Example
+
+Post: "How to do webscraping using python and Selenium?"
+Predicted tags: webscraping, python, selenium
+
+## Repository
+
+- Source: https://github.com/sailikhithk/Tags-recommender-system-for-community-forums
+- License: MIT
+- Open in Colab: https://colab.research.google.com/github/sailikhithk/Tags-recommender-system-for-community-forums
+
+## Other AI/ML work by Sai Likhith Kanuparthi
+
+- [facadedriver](https://github.com/sailikhithk/facadedriver) - Model-agnostic orchestration for multi-LLM production systems: routing, retry, fallback, circuit breakers, per-request telemetry.
+- [mamba-from-scratch](https://github.com/sailikhithk/mamba-from-scratch) - From-scratch S4, Mamba-1 (S6), Mamba-2 (SSD) state-space models in pure PyTorch.
+- [Synthetic-AI-Image-Detector](https://github.com/sailikhithk/Synthetic-AI-Image-Detector) - Multi-signal deepfake detection with calibration, uncertainty quantification, and cross-generator eval.
+- [llm-production-engineering](https://github.com/sailikhithk/llm-production-engineering) - Field notes on LLM serving in production: cost tracking, eval-driven deployment, capacity planning, incident playbooks.
+- [alzheimers-drug-discovery-demo](https://github.com/sailikhithk/alzheimers-drug-discovery-demo) - QSAR machine learning for Alzheimer's drug discovery: predict bioactivity against Beta-amyloid A4 protein.
+- [Project-X](https://github.com/sailikhithk/Project-X) - AI-based video interview platform with automated analysis.
+- [CreditCardFraudDetectionUsingKafka](https://github.com/sailikhithk/CreditCardFraudDetectionUsingKafka) - Real-time fraud detection with Kafka, Spark EMR, and AWS Lambda.
+
+## Author
+
+Sai Likhith Kanuparthi - Senior AI Infrastructure & Systems Engineer.
+7+ years shipping production AI systems at Airbnb, Southwest Airlines, Shell,
+Eli Lilly, and Oracle. MS Computer Science from NYU.
+
+- GitHub: https://github.com/sailikhithk
+- LinkedIn: https://www.linkedin.com/in/sailikhithk
+- Portfolio: https://sailikhith.me
