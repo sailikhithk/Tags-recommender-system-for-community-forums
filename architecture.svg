@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="Tags-recommender architecture: multi-label NLP tag recommender with active learning loop">
+  <defs>
+    <marker id="tr-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+    <linearGradient id="tr-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <style>
+      .node { fill: #111827; stroke: #334155; stroke-width: 1.2; }
+      .node-ai { fill: #1e1b4b; stroke: #8b5cf6; stroke-width: 1.4; }
+      .node-loop { fill: #27272a; stroke: #f59e0b; stroke-width: 1.4; stroke-dasharray: 4 3; }
+      .label { fill: #e2e8f0; font-size: 13px; font-weight: 600; }
+      .sub { fill: #94a3b8; font-size: 10.5px; }
+      .path-flow { stroke: #a78bfa; stroke-width: 1.6; fill: none; opacity: 0.55; }
+      .path-loop { stroke: #f59e0b; stroke-width: 1.4; fill: none; opacity: 0.55; stroke-dasharray: 4 3; }
+      .title { fill: #f1f5f9; font-size: 16px; font-weight: 700; }
+      .caption { fill: #64748b; font-size: 10.5px; }
+    </style>
+  </defs>
+
+  <rect width="960" height="420" fill="url(#tr-bg)"/>
+  <text x="20" y="32" class="title">Tags-recommender - Multi-label NLP Pipeline</text>
+  <text x="20" y="50" class="caption">TF-IDF + neural network + active learning loop - Stack Overflow / Discourse / Stack Exchange</text>
+
+  <!-- Stage 1: Forum post -->
+  <g>
+    <rect x="30" y="180" width="130" height="70" rx="10" class="node"/>
+    <text x="95" y="208" text-anchor="middle" class="label">Forum Post</text>
+    <text x="95" y="225" text-anchor="middle" class="sub">Stack Overflow</text>
+    <text x="95" y="240" text-anchor="middle" class="sub">Discourse</text>
+  </g>
+
+  <!-- Stage 2: Preprocess -->
+  <g>
+    <rect x="210" y="180" width="130" height="70" rx="10" class="node"/>
+    <text x="275" y="208" text-anchor="middle" class="label">Preprocess</text>
+    <text x="275" y="225" text-anchor="middle" class="sub">tokenize</text>
+    <text x="275" y="240" text-anchor="middle" class="sub">clean - lemmatize</text>
+  </g>
+
+  <!-- Stage 3: TF-IDF + NN -->
+  <g>
+    <rect x="390" y="155" width="150" height="90" rx="10" class="node-ai"/>
+    <text x="465" y="183" text-anchor="middle" class="label">TF-IDF + Neural Net</text>
+    <text x="465" y="200" text-anchor="middle" class="sub">multi-label sigmoid</text>
+    <text x="465" y="215" text-anchor="middle" class="sub">F1: 0.45 - Acc: 0.96</text>
+    <text x="465" y="230" text-anchor="middle" class="sub">BERT / MLP head</text>
+  </g>
+
+  <!-- Stage 4: Top-k tags -->
+  <g>
+    <rect x="600" y="155" width="130" height="90" rx="10" class="node"/>
+    <text x="665" y="190" text-anchor="middle" class="label">Top-k Tags</text>
+    <text x="665" y="207" text-anchor="middle" class="sub">threshold filter</text>
+    <text x="665" y="222" text-anchor="middle" class="sub">ranked output</text>
+  </g>
+
+  <!-- Stage 5: Streamlit UI -->
+  <g>
+    <rect x="790" y="155" width="140" height="90" rx="10" class="node"/>
+    <text x="860" y="190" text-anchor="middle" class="label">Streamlit UI</text>
+    <text x="860" y="207" text-anchor="middle" class="sub">AWS deployment</text>
+    <text x="860" y="222" text-anchor="middle" class="sub">user feedback</text>
+  </g>
+
+  <!-- Active learning loop -->
+  <g>
+    <rect x="600" y="320" width="330" height="60" rx="10" class="node-loop"/>
+    <text x="765" y="345" text-anchor="middle" class="label">Active Learning Loop</text>
+    <text x="765" y="362" text-anchor="middle" class="sub">low-confidence samples - human annotation - retrain</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M160,215 L210,215" class="path-flow" marker-end="url(#tr-arrow)"/>
+  <path d="M340,215 L390,215" class="path-flow" marker-end="url(#tr-arrow)"/>
+  <path d="M540,215 L600,215" class="path-flow" marker-end="url(#tr-arrow)"/>
+  <path d="M730,215 L790,215" class="path-flow" marker-end="url(#tr-arrow)"/>
+  <!-- Loop back: UI -> active learning -> model -->
+  <path d="M860,245 L860,320" class="path-loop" marker-end="url(#tr-arrow)"/>
+  <path d="M600,350 Q465,350 465,245" class="path-loop" marker-end="url(#tr-arrow)"/>
+
+  <!-- Animated packets -->
+  <circle r="4" fill="#fbbf24">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M160,215 L210,215"/>
+  </circle>
+  <circle r="4" fill="#a78bfa">
+    <animateMotion dur="2.4s" begin="0.4s" repeatCount="indefinite" path="M340,215 L390,215"/>
+  </circle>
+  <circle r="4" fill="#34d399">
+    <animateMotion dur="2.4s" begin="0.9s" repeatCount="indefinite" path="M540,215 L600,215"/>
+  </circle>
+  <circle r="4" fill="#f472b6">
+    <animateMotion dur="2.4s" begin="1.3s" repeatCount="indefinite" path="M730,215 L790,215"/>
+  </circle>
+  <!-- Loop packets (slower, dashed) -->
+  <circle r="4" fill="#f59e0b">
+    <animateMotion dur="3.2s" begin="1.8s" repeatCount="indefinite" path="M860,245 L860,320"/>
+  </circle>
+  <circle r="4" fill="#f59e0b">
+    <animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite" path="M600,350 Q465,350 465,245"/>
+  </circle>
+
+  <!-- Legend -->
+  <g transform="translate(20,390)">
+    <circle cx="6" cy="0" r="4" fill="#fbbf24"/>
+    <text x="16" y="4" class="caption">raw post</text>
+    <circle cx="90" cy="0" r="4" fill="#a78bfa"/>
+    <text x="100" y="4" class="caption">features</text>
+    <circle cx="180" cy="0" r="4" fill="#34d399"/>
+    <text x="190" y="4" class="caption">tag scores</text>
+    <circle cx="290" cy="0" r="4" fill="#f59e0b"/>
+    <text x="300" y="4" class="caption">active learning feedback</text>
+  </g>
+</svg>

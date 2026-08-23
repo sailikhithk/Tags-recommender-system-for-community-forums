@@ -1,6 +1,12 @@
 # Tags-recommender-system-for-community-forums
 Tags recommender system for the community forums. Works for forums like Stack Overflow, Stack Exchange, Discourse, Codechef etc.,.  
 
+## Architecture
+
+![Tags-recommender architecture - multi-label NLP pipeline with active learning](./architecture.svg)
+
+**Pipeline:** Forum post -> preprocess (tokenize, lemmatize) -> TF-IDF + neural net multi-label sigmoid -> top-k ranked tags -> Streamlit UI -> active learning loop feeds low-confidence samples back for human annotation and retraining.
+
 ## Project Collaborators:
 1. Architecture and Project Planning - Saad Ahmad and Somya Goswami
 2. Deep Learning SME - Somya Goswami
@@ -32,4 +38,5 @@ And the results, even using a simple model, are truly impressive.
 
 ### F1 Score- 0.45 , Accuracy is 0.96 for my scraped dataset. 
 
+See [llms.txt](./llms.txt) for an AI-readable project summary and cross-links to related AI/ML work.
 
